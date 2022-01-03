@@ -5,6 +5,7 @@ const userRoutes = require("./routes/user");
 const okrRoutes = require('./routes/okr')
 //Importing mongoose
 const mongoose = require("mongoose");
+const config = require('./config/config')
 
 //Using express to create a server
 const app = express();
@@ -40,7 +41,7 @@ app.use((error, req, res, next) => {
 
 //Connecting to mongodb and listening to the port 8080
 mongoose
-  .connect("mongodb+srv://conrado:262800@cluster0.gpslw.mongodb.net/OkrsDB")
+  .connect(config.mongodb_DB)
   .then((result) => {
     app.listen(8080);
   })
