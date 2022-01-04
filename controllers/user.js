@@ -22,13 +22,13 @@ exports.getUsers = async (req, res, next) => {
 //Controller createUser
 exports.createUser = async (req, res, next) => {
   //Retrieving the page data
-  const {name, email} = req.body;
+  const {name, email, okrs} = req.body;
 
   //Creating a user at mongodb
   const user = new User({
     name: name,
     email: email,
-    okrs: [],
+    okrs: okrs,
   });
 
   try {
